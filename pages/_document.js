@@ -2,6 +2,7 @@ import React from 'react';
 import NextDocument from 'next/document'
 import { ServerStyleSheet as StyledComponentSheets } from 'styled-components';
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 export default class Document extends NextDocument {
   static async getInitialProps (ctx) {
     const styledComponentSheet = new StyledComponentSheets();
@@ -13,7 +14,12 @@ export default class Document extends NextDocument {
         originalRenderPage({
           enhanceApp: App => props => 
             styledComponentSheet.collectStyles(
-              materialUiSheets.collect(<App {...props}/>) 
+              materialUiSheets.collect(
+                <React.Fragment>
+                  <CssBaseline />
+                  <App {...props}/>
+                </React.Fragment>
+              ) 
             )
         });
 

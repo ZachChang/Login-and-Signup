@@ -6,7 +6,6 @@ export const SignupWrapper = styled.div`
     position: absolute;
     top: calc(50% - 60px);
     height: 120px;
-    background: pink;
 `
 
 export const SignupItem = styled.div`

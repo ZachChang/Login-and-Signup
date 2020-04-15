@@ -1065,6 +1065,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "@material-ui/core/CssBaseline");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/zachchang/programing/solace/pages/_document.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1080,6 +1082,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
 class Document extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
   static async getInitialProps(ctx) {
     const styledComponentSheet = new styled_components__WEBPACK_IMPORTED_MODULE_2__["ServerStyleSheet"]();
@@ -1088,14 +1091,28 @@ class Document extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
     try {
       ctx.renderPage = () => originalRenderPage({
-        enhanceApp: App => props => styledComponentSheet.collectStyles(materialUiSheets.collect(__jsx(App, _extends({}, props, {
+        enhanceApp: App => props => styledComponentSheet.collectStyles(materialUiSheets.collect(__jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 16,
-            columnNumber: 40
+            lineNumber: 18,
+            columnNumber: 17
           }
-        }))))
+        }, __jsx(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_4___default.a, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19,
+            columnNumber: 19
+          }
+        }), __jsx(App, _extends({}, props, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20,
+            columnNumber: 19
+          }
+        })))))
       });
 
       const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(ctx);
@@ -1105,7 +1122,7 @@ class Document extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25,
+            lineNumber: 31,
             columnNumber: 11
           }
         }, initialProps.styles, materialUiSheets.getStyleElement(), styledComponentSheet.getStyleElement())
@@ -1128,6 +1145,17 @@ class Document extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 module.exports = __webpack_require__(/*! private-next-pages/_document.js */"./pages/_document.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/core/CssBaseline":
+/*!************************************************!*\
+  !*** external "@material-ui/core/CssBaseline" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/CssBaseline");
 
 /***/ }),
 
