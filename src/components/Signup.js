@@ -1,4 +1,5 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
 import { SignupWrapper } from '../style';
 import signupHandler from '../handler/signupHandler';
 
@@ -6,6 +7,7 @@ export default signupHandler(props => {
     const { handleSubmit, handleInputChange, errors, isShowError } = props;
     return (
         <SignupWrapper>
+            <Paper />
             <form onSubmit={handleSubmit}>
                 <div>
                     {isShowError && errors.username && <div>{errors.username}</div>}
