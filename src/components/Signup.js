@@ -19,6 +19,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const forFormat = [
+    {label: 'Username', name: 'username'},
+    {label: 'Email', name: 'email'},
+    {label: 'Password', name: 'password'},
+    {label: 'Confirm Password', name: 'confirmPassword'}
+]
+
 export default signupHandler(props => {
     const { handleSubmit, handleInputChange, errors, isShowError } = props;
     const classes = useStyles();
@@ -28,45 +35,20 @@ export default signupHandler(props => {
             <SignupWrapper>
                 <Paper className={classes.paper}>
                     <form onSubmit={handleSubmit}>
-                        <TextField className={classes.textField} id="standard-basic" label="Username">
-                            {isShowError && errors.username && <div>{errors.username}</div>}
-                            <input
-                                type="text"
-                                name="username"
+                        {forFormat.map((item, index) => 
+                            <TextField
+                                key={index}
+                                className={classes.textField}
+                                name={item.name}
+                                id={item.name}
+                                label={item.label}
+                                error={isShowError && errors[item.name] ? true : false}
+                                helperText={isShowError && errors[item.name] ? errors[item.name] : ''}
+                                type={item.name === 'password' || item.name === 'confirmPassword' ? 'password' : 'text'}
                                 onChange={handleInputChange}
-                                className="form-control"
-                                placeholder="Username"
-                            
-                            />
-                        </TextField>
-                        <TextField className={classes.textField} id="standard-basic" label="Email">
-                            {isShowError && errors.email && <div>{errors.email}</div>}
-                            <input
-                                type="text"
-                                name="email"
-                                onChange={handleInputChange}
-                                placeholder="Email"
-                            />
-                        </TextField>
-                        <TextField className={classes.textField} id="standard-basic" label="Password">
-                            {isShowError && errors.password && <div>{errors.password}</div>}
-                            <input
-                                type="password"
-                                name="password"
-                                onChange={handleInputChange}
-                                className="form-control"
-                                placeholder="Password"
-                            />
-                        </TextField>
-                        <TextField className={classes.textField} id="standard-basic" label="Confirm Password">
-                            {isShowError && errors.confirmPassword && <div>{errors.confirmPassword}</div>}
-                            <input
-                                type="password"
-                                name="confirmPassword"
-                                onChange={handleInputChange}
-                                placeholder="Confirm Password"
-                            />
-                        </TextField>
+                            >
+                            </TextField>
+                        )}
                         <Button className={classes.confirmBtn} type='submit' variant="outlined">Confirm</Button>
                     </form>
                 </Paper>
