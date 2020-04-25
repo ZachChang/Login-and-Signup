@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-export const SignupWrapper = styled.div`
+export const MemberFormWrapper = styled.div`
     width: 50%;
+    min-width: 270px;
     text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 25%;
-
     form {
-        width: 360px;
+        max-width: 450px;
         margin: 0 auto;
         padding: 15px 0;
     }

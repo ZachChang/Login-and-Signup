@@ -1,6 +1,6 @@
 import React from 'react';
 import signupHandler from '../handler/signupHandler';
-import { SignupWrapper, IndexWrapper } from '../style';
+import { MemberFormWrapper, IndexWrapper } from '../style';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
     textField: {
         margin: '15px 0',
-        width: 300
+        width: '85%'
     },
     confirmBtn: {
         margin: '20px 0'
@@ -32,7 +32,7 @@ export default signupHandler(props => {
 
     return (
         <IndexWrapper>
-            <SignupWrapper>
+            <MemberFormWrapper>
                 <Paper className={classes.paper}>
                     <form onSubmit={handleSubmit}>
                         {forFormat.map((item, index) => 
@@ -52,7 +52,7 @@ export default signupHandler(props => {
                         <Button className={classes.confirmBtn} type='submit' variant="outlined">Confirm</Button>
                     </form>
                 </Paper>
-            </SignupWrapper>
+            </MemberFormWrapper>
         </IndexWrapper>
     )
 });

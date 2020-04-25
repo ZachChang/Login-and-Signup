@@ -55,9 +55,12 @@ export const useSignupForm = (callback) => {
         return true;
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event) => {        
         if (event) event.preventDefault();
         showError(true);
+        const test = isFormValid();
+        console.log(test);
+        
         if (isFormValid()) callback(inputs);
     }
 
