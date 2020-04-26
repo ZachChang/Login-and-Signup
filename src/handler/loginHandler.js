@@ -8,7 +8,7 @@ export default Component => props => {
             .then( res => console.log(res))
             .catch(err => console.log(err))
     }
-    const {inputs, handleInputChange, handleSubmit, errors, isShowError} = useSignupForm(login);
+    const {inputs, handleInputChange, handleSubmit, errors, isShowError} = useSignupForm(login, true);
 
     props = {
         ...props,

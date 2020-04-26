@@ -1,12 +1,18 @@
 import { useState } from  'react';
 
-export const useSignupForm = (callback) => {
-    const formFields = {
+export const useSignupForm = (callback, isLogin) => {
+    const signupForm = {
         username: '',
         email: '',
         password: '',
         confirmPassword: ''
     };
+    const loginForm = {
+        email: '',
+        password: ''
+    }
+    const formFields = isLogin ? loginForm : signupForm;
+
     const initErrors = () => {
         let errors = {...formFields};
         for (const key in formFields) {
@@ -59,8 +65,6 @@ export const useSignupForm = (callback) => {
         if (event) event.preventDefault();
         showError(true);
         const test = isFormValid();
-        console.log(test);
-        
         if (isFormValid()) callback(inputs);
     }
 

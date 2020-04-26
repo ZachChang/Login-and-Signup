@@ -1,5 +1,5 @@
 import React from 'react';
-import signupHandler from '../handler/signupHandler';
+import loginHandler from '../handler/loginHandler';
 import { MemberFormWrapper, IndexWrapper } from '../style';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -24,7 +24,7 @@ const forFormat = [
     {label: 'Password', name: 'password'}
 ]
 
-export default signupHandler(props => {
+export default loginHandler(props => {
     const { handleSubmit, handleInputChange, errors, isShowError } = props;
     const classes = useStyles();
 
