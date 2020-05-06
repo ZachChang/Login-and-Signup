@@ -6,14 +6,21 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { pink } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        background: '#a5a5a514'
+        background: '#e0e0e02b'
     },
     textField: {
         margin: '15px 0',
-        width: '85%'
+        width: '85%',
+        '& input:-webkit-autofill': {
+            transition: 'background-color 5000s ease-in-out 0s'
+        },
+        '& input': {
+            borderBottom: '1px solid gray'
+        }
     },
     confirmBtn: {
         textTransform: 'none',
