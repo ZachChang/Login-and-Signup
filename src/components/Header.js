@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import headerHandler from '../handler/headerHandler';
 
 const useStyles= makeStyles(() => ({
     bar: {
@@ -24,8 +25,9 @@ const useStyles= makeStyles(() => ({
     }
 }));
 
-const Header = () => {
+export default headerHandler(props => {
     const classes = useStyles();
+    const { openSignupPopup, openLoginPopup } = props;
 
     return (
         <AppBar className={classes.bar} position="fixed">
@@ -34,12 +36,10 @@ const Header = () => {
                     <Link href='/'><Typography variant="h6">Collect Thought</Typography></Link>
                 </div>
                 <div>
-                    <Link href='/login'><Button className={classes.hbtn} color="inherit">Log in</Button></Link>
-                    <Link href='/signup'><Button className={classes.hbtn} color="inherit">Sign up</Button></Link>
+                    <Button onClick={openLoginPopup} className={classes.hbtn} color="inherit">Log in</Button>
+                    <Button onClick={openSignupPopup} className={classes.hbtn} color="inherit">Sign up</Button>
                 </div>
             </Toolbar>
         </AppBar>
     )
-};
-
-export default Header;
+});

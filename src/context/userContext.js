@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const UserInfo = React.createContext({
+export const UserContext = React.createContext({
     token: '',
     userName: '',
     userEmail: '',

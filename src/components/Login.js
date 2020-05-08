@@ -1,32 +1,14 @@
-import React from 'react';
-import Header from './Header';
+import React, { useEffect } from 'react';
 import loginHandler from '../handler/loginHandler';
-import { MemberFormWrapper, IndexWrapper } from '../style';
+import { MemberFormWrapper } from '../style';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { pink } from '@material-ui/core/colors';
+import Popup from './Popup';
+import config from '../config';
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        background: '#e0e0e02b'
-    },
-    textField: {
-        margin: '15px 0',
-        width: '85%',
-        '& input:-webkit-autofill': {
-            transition: 'background-color 5000s ease-in-out 0s'
-        },
-        '& input': {
-            borderBottom: '1px solid gray'
-        }
-    },
-    confirmBtn: {
-        textTransform: 'none',
-        margin: '20px 0'
-    }
-}));
+const useStyles = makeStyles(() => config.style.signup);
 
 const forFormat = [
     {label: 'Email', name: 'email'},
@@ -34,12 +16,18 @@ const forFormat = [
 ]
 
 export default loginHandler(props => {
-    const { handleSubmit, handleInputChange, errors, isShowError } = props;
+    const { handleSubmit, handleInputChange, errors, isShowError, isPopupOpen, closePopup } = props;
     const classes = useStyles();
 
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('activation')==='success') {
+            setIsPopupOpen(true);
+        }
+    }, [])
+
     return (
-        <React.Fragment>
-            <Header />
+        <Popup open={isPopupOpen} onClose={closePopup}>
             <MemberFormWrapper>
                 <Paper className={`${classes.paper} container`}>
                     <form onSubmit={handleSubmit}>
@@ -61,6 +49,6 @@ export default loginHandler(props => {
                     </form>
                 </Paper>
             </MemberFormWrapper>
-        </React.Fragment>
+        </Popup>
     )
 });

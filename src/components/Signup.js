@@ -1,25 +1,14 @@
 import React from 'react';
-import Header from './Header';
 import signupHandler from '../handler/signupHandler';
-import { MemberFormWrapper, IndexWrapper } from '../style';
+import { MemberFormWrapper } from '../style';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Popup from './Popup';
+import config from '../config';
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        background: '#e0e0e02b'
-    },
-    textField: {
-        margin: '15px 0',
-        width: '85%'
-    },
-    confirmBtn: {
-        textTransform: 'none',
-        margin: '20px 0'
-    }
-}));
+const useStyles = makeStyles(() => config.style.signup);
 
 const forFormat = [
     {label: 'Username', name: 'username'},
@@ -29,12 +18,11 @@ const forFormat = [
 ]
 
 export default signupHandler(props => {
-    const { handleSubmit, handleInputChange, errors, isShowError } = props;
+    const { handleSubmit, handleInputChange, errors, isShowError, isPopupOpen, closePopup } = props;
     const classes = useStyles();
 
     return (
-        <React.Fragment>
-            <Header />
+        <Popup open={isPopupOpen} onClose={closePopup}>
             <MemberFormWrapper>
                 <Paper className={`${classes.paper} container`}>
                     <form onSubmit={handleSubmit}>
@@ -56,6 +44,6 @@ export default signupHandler(props => {
                     </form>
                 </Paper>
             </MemberFormWrapper>
-        </React.Fragment>
+        </Popup>
     )
 });

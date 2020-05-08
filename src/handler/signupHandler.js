@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import apiUtility from '../utils/apiUtility';
 import { useSignupForm } from '../utils/customHooks';
+import { AppContext } from '../context/appContext';
 
 export default Component => props => {
     const signup = (formData) => {
@@ -8,7 +9,12 @@ export default Component => props => {
             .then( res => console.log(res))
             .catch(err => console.log(err))
     }
-    const {inputs, handleInputChange, handleSubmit, errors, isShowError} = useSignupForm(signup);
+    const { inputs, handleInputChange, handleSubmit, errors, isShowError } = useSignupForm(signup);
+    const { appState, appDispatch } = useContext(AppContext);
+
+    const closePopup = () => {
+        appDispatch({ type: 'SIGNUP_POPUP_TOGGLE', payload: false })
+    }
 
     props = {
         ...props,
@@ -16,7 +22,9 @@ export default Component => props => {
         handleInputChange,
         handleSubmit,
         errors,
-        isShowError
+        isShowError,
+        isPopupOpen: appState.isSignupPopupOpen,
+        closePopup
     };
 
     return (
