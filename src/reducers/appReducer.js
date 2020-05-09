@@ -6,6 +6,11 @@ export default function reducer(state, action) {
                 ...state,
                 popupMsg: payload
             };
+        case 'WRITE_NOTIFICATION_MSG':
+            return {
+                ...state,
+                notificationMsg: payload
+            };
         case 'LOGIN_POPUP_TOGGLE':
             return {
                 ...state,
@@ -15,6 +20,11 @@ export default function reducer(state, action) {
             return {
                 ...state,
                 isSignupPopupOpen: payload
+            };
+        case 'TOGGLE_LOADING':
+            return {
+                ...state,
+                isShowLoading: payload
             };
         default:
             return;

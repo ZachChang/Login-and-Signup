@@ -17,7 +17,7 @@ const forFormat = [
 ]
 
 export default signupHandler(props => {
-    const { handleSubmit, handleInputChange, errors, isShowError, isPopupOpen, closePopup } = props;
+    const { handleSubmit, handleInputChange, errors, isShowError, isPopupOpen, closePopup, apiLoading } = props;
     const classes = useStyles();
 
     return (

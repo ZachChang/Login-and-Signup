@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import loginHandler from '../handler/loginHandler';
 import { MemberFormWrapper } from '../style/MemberFormWrapper';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Popup from './Popup';
 import config from '../config';
@@ -15,20 +16,16 @@ const forFormat = [
 ]
 
 export default loginHandler(props => {
-    const { handleSubmit, handleInputChange, errors, isShowError, isPopupOpen, closePopup } = props;
+    const { handleSubmit, handleInputChange, errors, isShowError, isPopupOpen, closePopup, info } = props;
     const classes = useStyles();
-
-    useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('activation')==='success') {
-            setIsPopupOpen(true);
-        }
-    }, [])
 
     return (
         <Popup open={isPopupOpen} onClose={closePopup}>
             <MemberFormWrapper>
                 <div className='container'>
+                    {info !== '' &&
+                        <Typography variant="h8">{info}</Typography>
+                    }
                     <form onSubmit={handleSubmit}>
                         {forFormat.map((item, index) => 
                             <TextField

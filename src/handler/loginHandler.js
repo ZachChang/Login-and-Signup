@@ -5,6 +5,7 @@ import { AppContext } from '../context/appContext';
 
 export default Component => props => {
     const login = (formData) => {
+        props.setloginInfo('');
         apiUtility.login(formData)
             .then( res => console.log(res))
             .catch(err => console.log(err))
@@ -13,6 +14,7 @@ export default Component => props => {
     const { appState, appDispatch } = useContext(AppContext);
 
     const closePopup = () => {
+        props.setloginInfo('');
         appDispatch({ type: 'LOGIN_POPUP_TOGGLE', payload: false })
     }
 

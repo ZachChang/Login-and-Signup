@@ -4,5 +4,6 @@ export const AppContext = React.createContext({
     popupMsg: '',
     notificationMsg: '',
     isLoginPopupOpen: false,
-    isSignupPopupOpen: false
+    isSignupPopupOpen: false,
+    isShowLoading: false
 })

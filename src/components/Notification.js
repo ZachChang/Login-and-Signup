@@ -1,15 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import notificationHandler from '../handler/notificationHandler';
 import { NotificationWrapper } from '../style/NotificationWrapper';
-import { AppContext } from '../context/appContext';
+import Typography from '@material-ui/core/Typography';
 
-export default props => {
-    const { appState } = useContext(AppContext);
+export default notificationHandler(props => {
     return (
-        <React.Fragment>
-            {
-                appState.notificationMsg !== '' &&
-                    <NotificationWrapper>{appState.notificationMsg}</NotificationWrapper>
-            }
-        </React.Fragment>
+        <NotificationWrapper isShow={props.notificationMsg !== ''}>
+            <Typography variant="h7">
+                {props.notificationMsg}
+            </Typography>
+        </NotificationWrapper>
     )
-}
+});

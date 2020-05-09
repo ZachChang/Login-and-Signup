@@ -30,7 +30,7 @@ export default headerHandler(props => {
     const { openSignupPopup, openLoginPopup } = props;
 
     return (
-        <AppBar className={classes.bar} position="fixed">
+        <AppBar className={classes.bar} position="relative">
             <Toolbar className={classes.toolbar}>
                 <div>
                     <Link href='/'><Typography variant="h6">Collect Thought</Typography></Link>
