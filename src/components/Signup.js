@@ -1,7 +1,6 @@
 import React from 'react';
 import signupHandler from '../handler/signupHandler';
-import { MemberFormWrapper } from '../style';
-import Paper from '@material-ui/core/Paper';
+import { MemberFormWrapper } from '../style/MemberFormWrapper';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -24,7 +23,7 @@ export default signupHandler(props => {
     return (
         <Popup open={isPopupOpen} onClose={closePopup}>
             <MemberFormWrapper>
-                <Paper className={`${classes.paper} container`}>
+                <div className='container'>
                     <form onSubmit={handleSubmit}>
                         {forFormat.map((item, index) => 
                             <TextField
@@ -42,7 +41,7 @@ export default signupHandler(props => {
                         )}
                         <Button className={classes.confirmBtn} type='submit' variant="outlined">Sign up</Button>
                     </form>
-                </Paper>
+                </div>
             </MemberFormWrapper>
         </Popup>
     )

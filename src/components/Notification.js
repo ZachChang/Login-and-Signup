@@ -1,20 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { NotificationWrapper } from '../style/NotificationWrapper';
+import { AppContext } from '../context/appContext';
 
 export default props => {
-    const { type } = props;
-    const res = () => {
-        switch (type) {
-            case 'error':
-                return 'error'
-            case 'success':
-                return 'success';
-            default:
-                return 'error'
-        }
-    }
+    const { appState } = useContext(AppContext);
     return (
-        <div>
-            {res()}
-        </div>
+        <React.Fragment>
+            {
+                appState.notificationMsg !== '' &&
+                    <NotificationWrapper>{appState.notificationMsg}</NotificationWrapper>
+            }
+        </React.Fragment>
     )
 }

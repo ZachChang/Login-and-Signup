@@ -4,12 +4,12 @@ module.exports = {
     style: {
         signup: {
             paper: {
-                maxWifth: 540,
+                maxWifth: '540px',
                 background: '#e0e0e02b'
             },
             textField: {
                 margin: '15px 0',
-                width: '85%',
+                width: '100%',
                 '& input:-webkit-autofill': {
                     transition: 'background-color 5000s ease-in-out 0s'
                 },
@@ -19,7 +19,8 @@ module.exports = {
             },
             confirmBtn: {
                 textTransform: 'none',
-                margin: '20px 0'
+                width: '40%',
+                margin: '20px auto'
             }
         }
     }

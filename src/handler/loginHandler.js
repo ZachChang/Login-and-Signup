@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import apiUtility from '../utils/apiUtility';
 import { useSignupForm } from '../utils/customHooks';
 import { AppContext } from '../context/appContext';

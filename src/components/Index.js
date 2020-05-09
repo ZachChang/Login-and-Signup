@@ -8,6 +8,7 @@ import userReducer from '../reducers/userReducer';
 import useCustomReducer from '../helper/useCustomReducer';
 import MainChart from './MainChart';
 import Header from './Header';
+import Notification from './Notification';
 import Login from './Login';
 import Signup from './Signup';
 import config from '../config';
@@ -40,6 +41,7 @@ export default withRouter(AuthHandler(props => {
         <AppContext.Provider value={{appState, appDispatch}}>
             <UserContext.Provider value={{userState, userDispatch}}>
                 <Header />
+                <Notification />
                 <MainChart />
                 <Login />
                 <Signup />

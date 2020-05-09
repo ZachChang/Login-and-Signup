@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const MemberFormWrapper = styled.div`    
     .container {
-        width: 100%;
-        min-width: 270px;
-        min-height: 300px;
-        text-align: center;
+        width: 500px;
         form {
-            margin: 0 auto;
-            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            margin: 10%;
+        }
+        @media only screen and (max-width: 414px) {
+            width: 100%;
         }
     }
 `
