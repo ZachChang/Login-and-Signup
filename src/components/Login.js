@@ -24,7 +24,10 @@ export default loginHandler(props => {
             <MemberFormWrapper>
                 <div className='container'>
                     {info !== '' &&
-                        <Typography variant="h8">{info}</Typography>
+                        <div className='info'>
+                            <div>{info.split('%%')[0]}</div>
+                            <div>{info.split('%%')[1]}</div>
+                        </div>
                     }
                     <form onSubmit={handleSubmit}>
                         {forFormat.map((item, index) => 

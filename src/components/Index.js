@@ -31,7 +31,7 @@ export default withRouter(AuthHandler(props => {
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('activation')==='success') {
-            setloginInfo('Your account was successfully verified!')
+            setloginInfo('Your account was successfully verified!%%Now login to create your own thoughts.')
             appDispatch({ type: 'LOGIN_POPUP_TOGGLE', payload: true })
         }
     }, [])
