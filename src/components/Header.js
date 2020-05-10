@@ -33,7 +33,7 @@ export default headerHandler(props => {
         <AppBar className={classes.bar} position="relative">
             <Toolbar className={classes.toolbar}>
                 <div>
-                    <Link href='/'><Typography variant="h6">Collect Thought</Typography></Link>
+                    <Link href='/'><Typography variant="h6">Member System</Typography></Link>
                 </div>
                 <div>
                     <Button onClick={openLoginPopup} className={classes.hbtn} color="inherit">Log in</Button>
